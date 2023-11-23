@@ -23,3 +23,4 @@ def check_admin():
 
 
 create_admin()
+check_admin()

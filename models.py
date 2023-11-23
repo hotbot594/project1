@@ -9,7 +9,7 @@ class User(Base, UserMixin):
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
     password = Column(String, nullable=False)
-    balance = Column(Integer, nullable=False)
+    balance = Column(Integer, nullable=False, default=0)
 
 
 
@@ -20,3 +20,4 @@ Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 
 
+session = Session()

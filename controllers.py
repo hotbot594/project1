@@ -1,15 +1,10 @@
-import sqlite3
-from flask_login import login_user, LoginManager
+from flask_login import login_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import *
 from sqlalchemy.orm import declarative_base, Session
 import secrets
+from app import login_manager
 
-DATABASE_URI = '../app.db'
-login_manager = LoginManager()
-session = Session()
-connection = sqlite3.connect('app.db', check_same_thread=False)
-cursor = connection.cursor()
 
 def register_user(username: str) -> User | None:
     password = secrets.token_urlsafe(8)
